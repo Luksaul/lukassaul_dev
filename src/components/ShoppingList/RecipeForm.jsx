@@ -1,6 +1,6 @@
 import { useState } from "react";
-import IngredientSelect from './IngredientSelect/IngredientSelect';
-import './RecipeForm.css';
+import IngredientSelect from "./IngredientSelect/IngredientSelect";
+import "./RecipeForm.css";
 
 const RecipeForm = (props) => {
   const submitHandler = (event) => {
@@ -18,240 +18,240 @@ const RecipeForm = (props) => {
         amount: event.target.elements[i + 1].value,
         unit: event.target.elements[i + 2].value,
       };
-      if (ingredient.ingredient !== ""){
-      recipe.ingredients.push(ingredient);
+      if (ingredient.ingredient !== "") {
+        recipe.ingredients.push(ingredient);
       }
       i += 3;
     }
-    props.onSaveRecipe(recipe);
+    props.onAddRecipe(recipe);
 
     document.getElementById("recipeForm").reset();
   };
 
   return (
     <>
-    <div className="recipeform">
-      <h3>Recipes</h3>
-      <form onSubmit={submitHandler} id="recipeForm">
-        <div className="titleInput">
-          <label>Title</label>
-          <input type="text" />
-        </div>
-        <div className="ingredients">
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
+      <div className="recipeform">
+        <h3>Recipes</h3>
+        <form onSubmit={submitHandler} id="recipeForm">
+          <div className="titleInput">
+            <label>Title</label>
+            <input type="text" />
+          </div>
+          <div className="ingredients">
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
             </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
             </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
+            </div>
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
+            </div>
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
+            </div>
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
+            </div>
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
+            </div>
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
+            </div>
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
+            </div>
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
+            </div>
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
+            </div>
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
+            </div>
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
+            </div>
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
+            </div>
+            <div className="ingredientGroup">
+              <div className="ingredientName">
+                <label>Ingredient</label>
+                <input type="text" />
+              </div>
+              <div className="ingredientAmount">
+                <label>Amount</label>
+                <input type="text" />
+              </div>
+              <div className="amountUnit">
+                <label>Unit</label>
+                <IngredientSelect />
+              </div>
             </div>
           </div>
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
-            </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
-            </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
-            </div>
-          </div>
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
-            </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
-            </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
-            </div>
-          </div>
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
-            </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
-            </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
-            </div>
-          </div>
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
-            </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
-            </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
-            </div>
-          </div>
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
-            </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
-            </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
-            </div>
-          </div>
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
-            </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
-            </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
-            </div>
-          </div>
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
-            </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
-            </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
-            </div>
-          </div>
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
-            </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
-            </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
-            </div>
-          </div>
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
-            </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
-            </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
-            </div>
-          </div>
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
-            </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
-            </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
-            </div>
-          </div>
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
-            </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
-            </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
-            </div>
-          </div>
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
-            </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
-            </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
-            </div>
-          </div>
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
-            </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
-            </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
-            </div>
-          </div>
-          <div className="ingredientGroup">
-            <div className="ingredientName">
-              <label>Ingredient</label>
-              <input type="text" />
-            </div>
-            <div className="ingredientAmount">
-              <label>Amount</label>
-              <input type="text" />
-            </div>
-            <div className="amountUnit">
-              <label>Unit</label>
-              <IngredientSelect />
-            </div>
-          </div>
-        </div>
-        <button type="submit">Add to Cookbook</button>
-      </form>
-    </div>
+          <button type="submit">Add to Cookbook</button>
+        </form>
+      </div>
     </>
   );
 };

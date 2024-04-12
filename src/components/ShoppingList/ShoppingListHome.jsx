@@ -1,11 +1,15 @@
-import './ShoppingListHome.css'
-import Header from './Header.jsx'
-import RecipeForm from './RecipeForm.jsx'
-import CookBook from './CookBook/CookBook.jsx'
-import ShoppingList from './ShoppingList/ShoppingList.jsx'
+import "./ShoppingListHome.css";
+import Header from "./Header.jsx";
+import RecipeForm from "./RecipeForm.jsx";
+import CookBook from "./CookBook/CookBook.jsx";
+import ShoppingList from "./ShoppingList/ShoppingList.jsx";
 import { useState, useEffect } from "react";
+import { collection, addDoc, QuerySnapshot, getDocs } from "firebase/firestore";
+import { db } from "../../firebase.js";
+
 function ShoppingListHome() {
-  const [enteredRecipes, setEnteredRecipes] = useState(JSON.parse(window.localStorage.getItem("recipes")) || []);
+  const [enteredRecipes, setEnteredRecipes] = useState([]);
+  const [recipes, setRecipes] = useState({});
   const [enteredShopList, setEnteredShopList] = useState([]);
 
   const saveRecipeHandler = (enteredRecipe) => {
@@ -17,39 +21,55 @@ function ShoppingListHome() {
   };
 
   const removeRecipeHandler = (id) => {
-    const newRecipeList = enteredRecipes.filter((enteredRecipe) => enteredRecipe.id !== id);
+    const newRecipeList = enteredRecipes.filter(
+      (enteredRecipe) => enteredRecipe.id !== id
+    );
     setEnteredRecipes(newRecipeList);
-  }
+  };
 
-  useEffect(() => {
-    localStorage.setItem("recipes", JSON.stringify(enteredRecipes));
-  }, [enteredRecipes]);
-
-  useEffect(() => {
-    const recipes = JSON.parse(window.localStorage.getItem("recipes"));
-    if (recipes) {
-      setEnteredRecipes(recipes);
+  const addRecipe = async (recipe) => {
+    try {
+      const docRef = await addDoc(collection(db, "recipes"), {
+        recipe: recipe,
+      });
+    } catch {
+      console.error("Error adding recipe: ", recipe);
     }
-  }, []);
+  };
+
+  const fetchPost = async () => {
+    await getDocs(collection(db, "recipes")).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setEnteredRecipes(newData);
+      console.log(enteredRecipes, newData);
+    });
+  };
+
+  useEffect(() => {
+    fetchPost();
+  });
 
   return (
     <>
-    <div className="ShoppingListHome">
-      <Header></Header>
-      <div className="container">
-        <div className="main">
-          <RecipeForm onSaveRecipe={saveRecipeHandler}></RecipeForm>
-          <CookBook
-            recipes={enteredRecipes}
-            onSaveShoppingList={saveShopListHandler}
-            onRemoveRecipe={removeRecipeHandler}
-          ></CookBook>
-        </div>
-        <div className="sidebar">
-          <ShoppingList list={enteredShopList}></ShoppingList>
+      <div className="ShoppingListHome">
+        <Header></Header>
+        <div className="container">
+          <div className="main">
+            <RecipeForm onAddRecipe={addRecipe}></RecipeForm>
+            <CookBook
+              enteredRecipes={enteredRecipes}
+              onSaveShoppingList={saveShopListHandler}
+              onRemoveRecipe={removeRecipeHandler}
+            ></CookBook>
+          </div>
+          <div className="sidebar">
+            <ShoppingList list={enteredShopList}></ShoppingList>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 }
