@@ -4,7 +4,14 @@ import RecipeForm from "./RecipeForm.jsx";
 import CookBook from "./CookBook/CookBook.jsx";
 import ShoppingList from "./ShoppingList/ShoppingList.jsx";
 import { useState, useEffect } from "react";
-import { collection, addDoc, QuerySnapshot, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  QuerySnapshot,
+  getDocs,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 import { db } from "../../firebase.js";
 
 function ShoppingListHome() {
@@ -20,12 +27,12 @@ function ShoppingListHome() {
     setEnteredShopList((arr) => [...arr, shoppingListItem]);
   };
 
-  const removeRecipeHandler = (id) => {
-    const newRecipeList = enteredRecipes.filter(
-      (enteredRecipe) => enteredRecipe.id !== id
-    );
-    setEnteredRecipes(newRecipeList);
-  };
+  // const removeRecipeHandler = (id) => {
+  //   const newRecipeList = enteredRecipes.filter(
+  //     (enteredRecipe) => enteredRecipe.id !== id
+  //   );
+  //   setEnteredRecipes(newRecipeList);
+  // };
 
   const addRecipe = async (recipe) => {
     try {
@@ -44,13 +51,23 @@ function ShoppingListHome() {
         id: doc.id,
       }));
       setEnteredRecipes(newData);
-      console.log(enteredRecipes, newData);
+      console.log(newData, doc.id);
     });
+  };
+
+  const deleteRecipe = async (RecipeID) => {
+    const docRef = doc(db, "recipes", RecipeID);
+    console.log(RecipeID);
+    try {
+      await deleteDoc(docRef);
+    } catch (ex) {
+      consol.error(ex);
+    }
   };
 
   useEffect(() => {
     fetchPost();
-  });
+  }, [enteredRecipes]);
 
   return (
     <>
@@ -62,7 +79,7 @@ function ShoppingListHome() {
             <CookBook
               enteredRecipes={enteredRecipes}
               onSaveShoppingList={saveShopListHandler}
-              onRemoveRecipe={removeRecipeHandler}
+              onRemoveRecipe={deleteRecipe}
             ></CookBook>
           </div>
           <div className="sidebar">

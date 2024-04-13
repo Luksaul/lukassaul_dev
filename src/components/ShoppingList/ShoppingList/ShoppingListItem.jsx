@@ -1,11 +1,11 @@
-import './ShoppingListItem.css';
+import "./ShoppingListItem.css";
 
 const ShoppingListItem = (props) => {
   return (
     <>
-    <div className="item">
-      <h4>{props.entry.title}</h4>
-    </div>
+      <div className="item">
+        <h4>{props.entry.recipe.title}</h4>
+      </div>
     </>
   );
 };
