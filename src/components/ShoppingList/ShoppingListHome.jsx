@@ -3,7 +3,7 @@ import Header from "./Header.jsx";
 import RecipeForm from "./RecipeForm.jsx";
 import CookBook from "./CookBook/CookBook.jsx";
 import ShoppingList from "./ShoppingList/ShoppingList.jsx";
-import { useState, useEffect } from "react";
+import { useState, useEffect, forceUpdate } from "react";
 import {
   collection,
   addDoc,
@@ -39,6 +39,7 @@ function ShoppingListHome() {
       const docRef = await addDoc(collection(db, "recipes"), {
         recipe: recipe,
       });
+      fetchPost();
     } catch {
       console.error("Error adding recipe: ", recipe);
     }
@@ -51,23 +52,22 @@ function ShoppingListHome() {
         id: doc.id,
       }));
       setEnteredRecipes(newData);
-      console.log(newData, doc.id);
     });
   };
 
   const deleteRecipe = async (RecipeID) => {
     const docRef = doc(db, "recipes", RecipeID);
-    console.log(RecipeID);
     try {
       await deleteDoc(docRef);
+      fetchPost();
     } catch (ex) {
-      consol.error(ex);
+      console.error(ex);
     }
   };
 
   useEffect(() => {
     fetchPost();
-  }, [enteredRecipes]);
+  }, []);
 
   return (
     <>
