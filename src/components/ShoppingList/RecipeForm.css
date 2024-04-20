@@ -1,46 +1,169 @@
-.recipeform {
-  border: black 2px solid;
-  flex-direction: column;
-  justify-self: center;
-  align-items: center;
-  background-color: aqua;
-  width: 100%;
-  height: auto;
-  padding: 10px;
+@media (max-width: 640px) {
+  .recipeform {
+    border: black 2px solid;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    background-color: aqua;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    display: none;
+  }
+
+  .ingredients {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .ingredientGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .titleInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ingredientName {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ingredientAmount {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .amountUnit {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .recipeLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-.ingredients {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
+@media screen and (min-width: 640px) {
+  .recipeform {
+    border: black 2px solid;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    background-color: aqua;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .ingredients {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .ingredientGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .titleInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ingredientName {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ingredientAmount {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .amountUnit {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .recipeLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-.ingredientGroup {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
+@media screen and (min-width: 1280px) {
+  .recipeform {
+    border: black 2px solid;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    background-color: aqua;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
 
-.titleInput {
-  display: flex;
-  flex-direction: column;
-}
+  .ingredients {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
 
-.ingredientName {
-  display: flex;
-  flex-direction: column;
-}
+  .ingredientGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
 
-.ingredientAmount {
-  display: flex;
-  flex-direction: column;
-}
+  .titleInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.amountUnit {
-  display: flex;
-  flex-direction: column;
+  .ingredientName {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ingredientAmount {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .amountUnit {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .recipeLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

@@ -3,6 +3,8 @@ import Header from "./Header.jsx";
 import RecipeForm from "./RecipeForm.jsx";
 import CookBook from "./CookBook/CookBook.jsx";
 import ShoppingList from "./ShoppingList/ShoppingList.jsx";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 import { useState, useEffect, forceUpdate } from "react";
 import {
   collection,
@@ -16,7 +18,6 @@ import { db } from "../../firebase.js";
 
 function ShoppingListHome() {
   const [enteredRecipes, setEnteredRecipes] = useState([]);
-  const [recipes, setRecipes] = useState({});
   const [enteredShopList, setEnteredShopList] = useState([]);
 
   const saveRecipeHandler = (enteredRecipe) => {
@@ -26,13 +27,6 @@ function ShoppingListHome() {
   const saveShopListHandler = (shoppingListItem) => {
     setEnteredShopList((arr) => [...arr, shoppingListItem]);
   };
-
-  // const removeRecipeHandler = (id) => {
-  //   const newRecipeList = enteredRecipes.filter(
-  //     (enteredRecipe) => enteredRecipe.id !== id
-  //   );
-  //   setEnteredRecipes(newRecipeList);
-  // };
 
   const addRecipe = async (recipe) => {
     try {
@@ -65,6 +59,22 @@ function ShoppingListHome() {
     }
   };
 
+  const deleteRecipeAlert = (RecipeID) => {
+    confirmAlert({
+      title: "Confirm to Delete",
+      message: "Are you sure you'd like to delete this?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => deleteRecipe(RecipeID),
+        },
+        {
+          label: "No",
+        },
+      ],
+    });
+  };
+
   useEffect(() => {
     fetchPost();
   }, []);
@@ -79,7 +89,7 @@ function ShoppingListHome() {
             <CookBook
               enteredRecipes={enteredRecipes}
               onSaveShoppingList={saveShopListHandler}
-              onRemoveRecipe={deleteRecipe}
+              onRemoveRecipe={deleteRecipeAlert}
             ></CookBook>
           </div>
           <div className="sidebar">

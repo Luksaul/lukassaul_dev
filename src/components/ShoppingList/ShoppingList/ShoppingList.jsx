@@ -6,23 +6,24 @@ const ShoppingList = (props) => {
   const [shoppingList, setShoppingList] = useState("");
   const onButtonClickHandler = () => {
     const map = new Map();
+    console.log(props);
     let i = 0;
     while (i < props.list.length) {
       let j = 0;
       while (j < props.list[i].recipe.ingredients.length) {
+        console.log(props.list[i].recipe.ingredients);
         var total = 0;
         if (map.has(props.list[i].recipe.ingredients[j].ingredient)) {
           total =
-            parseFloat(
-              map.get(props.list[i].recipe.ingredients[j].ingredient)
-            ) + parseFloat(props.list[i].recipe.ingredients[j].amount);
+            parseFloat(map.get(props.list[i].recipe.ingredients[j].amount)) +
+            parseFloat(props.list[i].recipe.ingredients[j].ingredient);
         } else {
-          total = parseFloat(props.list[i].recipe.ingredients[j].amount);
+          total = parseFloat(props.list[i].recipe.ingredients[j].ingredient);
         }
         if (total > 0) {
           map.set(
-            props.list[i].recipe.ingredients[j].ingredient,
-            total + " " + props.list[i].recipe.ingredients[j].unit
+            props.list[i].recipe.ingredients[j].unit,
+            total + " " + props.list[i].recipe.ingredients[j].amount
           );
         }
         j++;
@@ -35,9 +36,10 @@ const ShoppingList = (props) => {
       shoppingList += key + " " + value + "\n";
     });
     setShoppingList(shoppingList);
-    window.alert("copied to clipboard");
-    console.log(shoppingList);
-    navigator.clipboard.writeText(shoppingList);
+    if (shoppingList != "") {
+      window.alert("copied to clipboard");
+      navigator.clipboard.writeText(shoppingList);
+    }
   };
 
   return (

@@ -4,38 +4,102 @@
   padding: 0;
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  margin: 0 auto;
-  width: 1200px;
-  height: auto;
-  background-color: #eee;
-  gap: 10px;
-  padding: 10px;
+@media (max-width: 640px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .ShoppingListHome {
+    text-align: center;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    border: 2px black solid;
+    padding: 10px;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    border: black 2px solid;
+    padding: 10px;
+  }
 }
 
-.ShoppingListHome {
-  text-align: center;
+@media screen and (min-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .ShoppingListHome {
+    text-align: center;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    border: 2px black solid;
+    padding: 10px;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    border: black 2px solid;
+    padding: 10px;
+  }
 }
 
-.main {
-  display: flex;
-  width: 75%;
-  flex-direction: column;
-  border: 2px black solid;
-  padding: 10px;
-  justify-content: start;
-  align-items: center;
-  gap: 10px;
-}
+@media screen and (min-width: 1280px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 1200px;
+    height: auto;
+    background-color: #eee;
+    gap: 10px;
+    padding: 10px;
+  }
 
-.sidebar {
-  display: flex;
-  width: 25%;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  border: black 2px solid;
-  padding: 10px;
+  .ShoppingListHome {
+    text-align: center;
+  }
+
+  .main {
+    display: flex;
+    width: 75%;
+    flex-direction: column;
+    border: 2px black solid;
+    padding: 10px;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sidebar {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    border: black 2px solid;
+    padding: 10px;
+  }
 }

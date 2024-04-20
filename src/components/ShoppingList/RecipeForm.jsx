@@ -9,10 +9,11 @@ const RecipeForm = (props) => {
       id: crypto.randomUUID(),
       title: event.target.elements[0].value,
       ingredients: [],
+      recipeLink: event.target.elements[55].value,
     };
 
     let i = 1;
-    while (i < event.target.elements.length - 1) {
+    while (i < event.target.elements.length - 2) {
       var ingredient = {
         ingredient: event.target.elements[i].value,
         amount: event.target.elements[i + 1].value,
@@ -291,7 +292,13 @@ const RecipeForm = (props) => {
               </div>
             </div>
           </div>
-          <button type="submit">Add to Cookbook</button>
+          <div className="recipeLink">
+            <label>Recipe Link</label>
+            <input type="text" />
+          </div>
+          <button className="recipeFormButton" type="submit">
+            Add to Cookbook
+          </button>
         </form>
       </div>
     </>

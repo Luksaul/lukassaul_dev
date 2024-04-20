@@ -8,3 +8,16 @@
   width: 200px;
   padding: 10px;
 }
+
+.cookbookentry p {
+  display: none;
+}
+
+button {
+  margin-top: 15px;
+}
+
+.cookbook_button_group {
+  display: flex;
+  flex-direction: row;
+}
